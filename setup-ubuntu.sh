@@ -36,4 +36,5 @@ else
 	sudo apt-get --force-yes install zsh
 	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 	print "${GREEN}Oh my zsh complete${NC}\n"
+	sudo chsh $(which zsh)
 fi

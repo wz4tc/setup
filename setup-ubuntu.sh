@@ -37,4 +37,5 @@ else
 	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 	print "${GREEN}Oh my zsh complete${NC}\n"
 	sudo chsh $(which zsh)
+	sed -i 's/ZSH_THEME=.*/ZSH_THEME=\"bira\"/' $(HOME)/.zshrc
 fi

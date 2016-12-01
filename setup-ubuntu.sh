@@ -3,12 +3,14 @@
 BASEDIR=$(dirname $0)
 USER=$(whoami)
 HOME=$(echo ~)
+ZSH_THEME_KEY=ZSH_THEME
+ZSH_THEME_NAME=bira
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
-sudo apt-get --force-yes install git tmux htop
-sudo apt-get --force-yes install python-pip
+sudo apt-get --force-yes -y install git tmux htop
+sudo apt-get --force-yes -y install python-pip
 
 if [ -e $HOME/.tmux ];
 then
@@ -33,9 +35,9 @@ if [ -e $HOME/.zshrc ];
 then
 	printf "${RED}Zsh already installed${NC}\n"
 else
-	sudo apt-get --force-yes install zsh
+	sudo apt-get --force-yes -y install zsh
 	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 	print "${GREEN}Oh my zsh complete${NC}\n"
 	sudo chsh $(which zsh)
-	sed -i 's/ZSH_THEME=.*/ZSH_THEME=\"bira\"/' $(HOME)/.zshrc
+	sed -i "s/\($ZSH_THEME_KEY *= *\).*/\1$\"$ZSH_THEME_NAME\"/" $(HOME)/.zshrc
 fi

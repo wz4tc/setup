@@ -9,6 +9,7 @@ ZSH_THEME_NAME=bira
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
+sudo apt-get --force-yes -y update
 sudo apt-get --force-yes -y install git tmux htop
 sudo apt-get --force-yes -y install python-pip
 

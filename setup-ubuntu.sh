@@ -40,6 +40,6 @@ else
 	sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 	print "${GREEN}Oh my zsh complete${NC}\n"
 	sudo chsh -s $(which zsh) $USER
-	sed -i "s/\($ZSH_THEME_KEY *= *\).*/\1$\"$ZSH_THEME_NAME\"/" $HOME/.zshrc
+	sed -i "s/\(${ZSH_THEME_KEY} *= *\).*/\1$\"${ZSH_THEME_NAME}\"/" $HOME/.zshrc
 fi
 sudo apt-get --force-yes -y install cmake libboost-all-dev

@@ -38,6 +38,10 @@ Plugin 'tpope/vim-surround'
 call vundle#end()            " required
 " the glaive#Install() should go after the "call vundle#end()"
 call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+Glaive codefmt plugin[mappings]
+" Glaive codefmt google_java_executable="java -jar
+" /path/to/google-java-format-VERSION-all-deps.jar"
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -76,9 +80,13 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   "autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
+  "autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 Glaive codefmt clang_format_style='Google' 
+
+nnoremap <c-s> :update<cr>
+inoremap <c-s> <esc>:update<cr>
